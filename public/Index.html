@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!--Defines th characters in use, using this on since its recommended based on the inclustivity of it-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--helps to define the size of the page based on different user screen sizes-->
+    <link rel="stylesheet" href="Styles.css"> <!--linking ya junk        Initial scale makes it so its not zoomed in or out--> 
+    <link rel="manifest" href="Manifest.json">
+    <title>Study Planner</title>
+    <!-- <meta http-equiv="refresh" content="5; src='Redirect.html'" /> -->
+</head>
+<body>
+    <h1>Study Planner</h1>
+    <form id="study-form"> <!--Creates a form which will store the data of subject topic and duedate from the user-->
+        <input type="text" id="subject" placeholder="Subject" required>
+        <input type="text" id="topic" placeholder="Topic" required>
+        <input type="date" id="due-date" required>
+        <button type="submit" id="submit-button">Add Study Session</button>
+    </form>
+    
+    <input type="text" id="search-query" placeholder="Search by subject or topic">
+    <button id="search-button">Search</button>
+    
+    <ul id="study-list"></ul> <!--references location of study list-->
+    <script src="Script.js"></script> <!-- Interupts normal form processes and appends it into study list-->
+    <script>
+        if ('serviceWorker' in navigator) { //checkf if there is a servicework
+            navigator.serviceWorker.register('ServiceWorker.js') //defines the service workers location
+                .then(() => {
+                    console.log('Service Worker Registered'); //debug to check if connection works
+                });
+        }
+    </script>
+</body>
+</html>
