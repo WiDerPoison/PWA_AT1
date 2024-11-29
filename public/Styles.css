@@ -1,7 +1,7 @@
 body { /*defines the apperance of the body*/
     font-family: Arial, sans-serif;
     text-align: center;
-    background-color: brown;
+    background-color: rgb(58, 65, 70);
 }
 
 form {
@@ -45,3 +45,97 @@ ul.NavBar li a:hover
 {
     background-color: #111;
 }
+
+
+/* Adjusts the height of images to fit NavBar */
+.NavBar img {
+    width: auto;
+    height: 50px; 
+    object-fit: contain; 
+}
+
+/* importing the best font for usage*/
+@font-face {
+    font-family: 'Spectral';
+    src: url('/Fonts/Spectral-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Spectral';
+    src: url('/Fonts/Spectral-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Spectral';
+    src: url('/Fonts/Spectral-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Spectral';
+    src: url('/Fonts/Spectral-BoldItalic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Spectral';
+    src: url('/Fonts/Spectral-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Spectral';
+    src: url('/Fonts/Spectral-ExtraBoldItalic.ttf') format('truetype');
+    font-weight: 800;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Spectral';
+    src: url('/Fonts/Spectral-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Spectral';
+    src: url('/Fonts/Spectral-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Spectral';
+    src: url('/Fonts/Spectral-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Spectral';
+    src: url('/Fonts/Spectral-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Spectral';
+    src: url('/Fonts/Spectral-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Spectral';
+    src: url('/Fonts/Spectral-SemiBoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+}
+
