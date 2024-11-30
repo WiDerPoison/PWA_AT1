@@ -5,10 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--helps to define the size of the page based on different user screen sizes-->
     <link rel="stylesheet" href="Styles.css"> <!--linking ya junk        Initial scale makes it so its not zoomed in or out--> 
     <link rel="manifest" href="Manifest.json">
-    <title>Study Planner</title>
+    <title>Study Planner/Planner</title>
     <!-- <meta http-equiv="refresh" content="5; src='Redirect.html'" /> -->
 </head>
 <body>
+    <ul class="NavBar">
+        <li><a href='./HomePage.html'>Home</a></li>
+        <li>
+            <a href="./HomePage.html">
+                <picture>
+                    <source srcset="Iconimages/Home96.png" media="(min-width: 1024px)">
+                    <source srcset="Home48.png" media="(min-width: 768px)">
+                    <source srcset="Home24.png" media="(max-width: 767px)">
+                    <img src="Home48.png" alt="HomeIcon">
+                </picture>
+            </a>
+        </li>
+        <li><a href='./StudyPlanner.html'>Study Planner</a></li>
+        <li>
+            <a href="./StudyPlanner.html">
+                <picture>
+                    <source srcset="StudyBook96.png" media="(min-width: 1024px)">
+                    <source srcset="StudyBook48.png" media="(min-width: 768px)">
+                    <source srcset="StudyBook24.png" media="(max-width: 767px)">
+                    <img src="StudyBook96" alt="StudyPlannerIcon">
+                </picture>
+            </a>
+        </li>
+        <li><a href='./Entertainment.html'>Entertainment</a></li>
+        <li>
+            <a href="./Entertainment.html">
+                <picture>
+                    <source srcset="FunnyFace96.png" media="(min-width: 1024px)">
+                    <source srcset="FunnyFace48.png" media="(min-width: 768px)">
+                    <source srcset="FunnyFace24.png" media="(max-width: 767px)">
+                    <img src="FunnyFace48" alt="EntertainmentIcon">
+                </picture>
+            </a>
+        </li>
+        
+    </ul>
     <h1>Study Planner</h1>
     <form id="study-form"> <!--Creates a form which will store the data of subject topic and duedate from the user-->
         <input type="text" id="subject" placeholder="Subject" required>
