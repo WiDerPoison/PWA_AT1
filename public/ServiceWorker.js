@@ -1,8 +1,11 @@
+const CACHE_Name = 'study-planner-cache'
+
 self.addEventListener('install', (event) => {//adds an event listener for when it is installe don a device; slef defines that when it is installed
     event.waitUntil(//waits till it is done
         caches.open('study-planner-cache').then((cache) => {//opens the caches and stores the files and images
             return cache.addAll([
                 '/',
+                '/Index.html',
                 '/HomePage.html',
                 '/StudyPlanner.html',
                 '/StudyTips',

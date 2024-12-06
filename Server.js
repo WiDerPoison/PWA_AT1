@@ -42,7 +42,7 @@ app.post('/api/study-sessions', (req, res) => {
 
 // Endpoint to retrieve all study sessions
 app.get('/api/study-sessions', (req, res) => {
-    const sql = 'SELECT * FROM study_sessions';
+    const sql = 'SELECT * FROM study_sessions ORDER BY due_date';//orders by urgency of tasks
     
     db.all(sql, [], (err, rows) => {
         if (err) {
@@ -67,10 +67,15 @@ app.get('/api/study-sessions/search', (req, res) => {
     });
 });
 
-// Serve the main HTML file
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'studyplanner.html'));
+// Serve the splash screen HTML file
+app.get('/splash', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'SplashScreen.html'));
 });
+
+// // Serve the HomePage.html file
+// app.get('/home', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'public', 'HomePage.html'));
+// });
 
 // Start the server
 app.listen(PORT, () => {
