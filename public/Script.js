@@ -45,7 +45,8 @@ function fetchStudySessions(query = '') {
             } 
             return response.json(); 
         }) 
-        .then(data => { 
+        .then(data => 
+            { 
             const studyList = document.getElementById('study-list'); 
             studyList.innerHTML = ''; // Clear the existing list 
             // Populate the list with study sessions 
@@ -54,10 +55,8 @@ function fetchStudySessions(query = '') {
                 li.textContent = `${session.subject} - ${session.topic} (Due: ${session.due_date})`; 
                 studyList.appendChild(li); 
             }); 
-    
-            }) 
-    
-            .catch(error => console.error('Error fetching sessions:', error)); 
+            }) 
+            .catch(error => console.error('Error fetching sessions:', error)); 
     
     } 
     
@@ -66,16 +65,13 @@ function fetchStudySessions(query = '') {
     fetchStudySessions(); 
     
     // Service Worker registration 
-if ('serviceWorker' in navigator) { 
+if ('serviceWorker' in navigator) 
+{ 
+    navigator.serviceWorker.register('service-worker.js') 
+        .then(() => 
+        { 
+            console.log('Service Worker Registered'); 
+        }) 
+        .catch(error => console.error('Service Worker registration failed:', error)); 
     
-        navigator.serviceWorker.register('service-worker.js') 
-    
-            .then(() => { 
-    
-                console.log('Service Worker Registered'); 
-    
-            }) 
-    
-            .catch(error => console.error('Service Worker registration failed:', error)); 
-    
-    } 
+} 
