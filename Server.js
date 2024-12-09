@@ -1,6 +1,7 @@
 const express = require('express');
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
+const multer = require('multer'); // For file handling
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -9,7 +10,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Create a SQLite database
+// SQLite database connection
 const db = new sqlite3.Database(path.join(__dirname, 'study-planner.db'), (err) => {
     if (err) {
         console.error(err.message);
@@ -17,15 +18,32 @@ const db = new sqlite3.Database(path.join(__dirname, 'study-planner.db'), (err) 
     console.log('Connected to the SQLite database.');
 });
 
-// Create the study_sessions table if it doesn't exist
+// Create tables if they don't exist
 db.serialize(() => {
+    // Study sessions table
     db.run(`CREATE TABLE IF NOT EXISTS study_sessions (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         subject TEXT NOT NULL,
         topic TEXT NOT NULL,
         due_date TEXT NOT NULL
     )`);
+
+    // Images table
+    db.run(`CREATE TABLE IF NOT EXISTS images (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        filename TEXT NOT NULL,
+        upload_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    )`);
 });
+
+// Set up multer for file uploads
+const storage = multer.diskStorage({
+    destination: path.join(__dirname, 'uploads'), 
+    filename: (req, file, cb) => {
+        cb(null, `${Date.now()}-${file.originalname}`);
+    }
+});
+const upload = multer({ storage });
 
 // Endpoint to add a new study session
 app.post('/api/study-sessions', (req, res) => {
@@ -42,7 +60,7 @@ app.post('/api/study-sessions', (req, res) => {
 
 // Endpoint to retrieve all study sessions
 app.get('/api/study-sessions', (req, res) => {
-    const sql = 'SELECT * FROM study_sessions ORDER BY due_date';//orders by urgency of tasks
+    const sql = 'SELECT * FROM study_sessions ORDER BY due_date'; // Orders by urgency of tasks
     
     db.all(sql, [], (err, rows) => {
         if (err) {
@@ -67,15 +85,48 @@ app.get('/api/study-sessions/search', (req, res) => {
     });
 });
 
+// Endpoint to upload an image
+app.post('/api/upload', upload.single('image'), (req, res) => {
+    if (!req.file) {
+        return res.status(400).json({ error: 'No file uploaded' });
+    }
+
+    const filename = req.file.filename;
+    db.run(
+        'INSERT INTO images (filename) VALUES (?)',
+        [filename],
+        function (err) {
+            if (err) {
+                return res.status(500).json({ error: 'Failed to save image' });
+            }
+            res.status(201).json({ id: this.lastID, filename });
+        }
+    );
+});
+
+// Endpoint to fetch all images
+app.get('/api/images', (req, res) => {
+    db.all('SELECT * FROM images ORDER BY upload_date DESC', [], (err, rows) => {
+        if (err) {
+            return res.status(500).json({ error: 'Failed to fetch images' });
+        }
+        res.json(rows);
+    });
+});
+
+// Middleware to parse JSON data
+app.use(express.json());
+
+// Serve static files from the 'public' folder
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Serve static files from the 'uploads' folder (outside 'public' folder)
+app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); 
+
 // Serve the splash screen HTML file
 app.get('/splash', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'SplashScreen.html'));
 });
-
-// // Serve the HomePage.html file
-// app.get('/home', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'public', 'HomePage.html'));
-// });
 
 // Start the server
 app.listen(PORT, () => {

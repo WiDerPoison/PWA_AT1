@@ -8,40 +8,108 @@
         <title>Study Planner/Study Tips</title>
     </head>
     <body>
-        <ul class="NavBar">
-            <li><a href='./HomePage.html'>Home</a></li>
-            <li>
-                <a href="./HomePage.html">
-                    <picture>
-                        <source srcset="Home96.png" media="(min-width: 1024px)">
-                        <source srcset="Home48.png" media="(min-width: 768px)">
-                        <source srcset="Home24.png" media="(max-width: 767px)">
-                        <img src="Home48.png" alt="HomeIcon">
-                    </picture>
-                </a>
-            </li>
-            <li><a href='./StudyPlanner.html'>Study Planner</a></li>
-            <li>
-                <a href="./StudyPlanner.html">
-                    <picture>
-                        <source srcset="StudyBook96.png" media="(min-width: 1024px)">
-                        <source srcset="StudyBook48.png" media="(min-width: 768px)">
-                        <source srcset="StudyBook24.png" media="(max-width: 767px)">
-                        <img src="StudyBook96" alt="StudyPlannerIcon">
-                    </picture>
-                </a>
-            </li>
-            <li><a href='./Entertainment.html'>Entertainment</a></li>
-            <li>
-                <a href="./Entertainment.html">
-                    <picture>
-                        <source srcset="FunnyFace96.png" media="(min-width: 1024px)">
-                        <source srcset="FunnyFace48.png" media="(min-width: 768px)">
-                        <source srcset="FunnyFace24.png" media="(max-width: 767px)">
-                        <img src="FunnyFace48" alt="EntertainmentIcon">
-                    </picture>
-                </a>
-            </li>
-        </ul>
+        <div class="video-background">
+            <video class="landscape-video" autoplay loop muted playsinline>
+                <source src="DynamicAssests/LandscapeBackground3Sec.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <video class="portrait-video" autoplay loop muted playsinline>
+                <source src="DynamicAssests/PortraitBackground3Sec.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="main-content">
+            <ul class="NavBar">
+                <li><a href='./HomePage.html'>Home</a></li>
+                <li>
+                    <a href="./HomePage.html">
+                        <picture>
+                            <source srcset="IconImages/Home96.png" media="(min-width: 1024px)">
+                            <source srcset="IconImages/Home48.png" media="(min-width: 768px)">
+                            <source srcset="IconImages/Home24.png" media="(max-width: 767px)">
+                            <img src="IconImages/Home48.png" alt="HomeIcon">
+                        </picture>
+                    </a>
+                </li>
+                <li><a href='./StudyPlanner.html'>Study Planner</a></li>
+                <li>
+                    <a href="./StudyPlanner.html">
+                        <picture>
+                            <source srcset="IconImages/StudyBook96.png" media="(min-width: 1024px)">
+                            <source srcset="IconImages/StudyBook48.png" media="(min-width: 768px)">
+                            <source srcset="IconImages/StudyBook24.png" media="(max-width: 767px)">
+                            <img src="IconImages/StudyBook96" alt="StudyPlannerIcon">
+                        </picture>
+                    </a>
+                </li>
+                <li><a href='./StudyTips.html'>Study Tips</a></li>
+                <li>
+                    <a href='./StudyTips.html'>
+                        <Picture>
+                            <source srcset="IconImages/QuestionMark96.png" media="(min-width: 1024px)">
+                            <source srcset="IconImages/QuestionMark48.png" media="(min-width: 768px)">
+                            <source srcset="IconImages/QuestionMark24.png" media="(max-width: 767px)">
+                            <img src="IconImages/StudyBook96" alt="QuestionMark">
+                        </Picture>
+                    </a>
+                </li>
+                
+            </ul>
+        
+
+        <div class="video-container">
+            <a href="https://www.youtube.com/watch?v=cLtM3pa9_SQ" target="_blank">
+              <img src="https://img.youtube.com/vi/cLtM3pa9_SQ/0.jpg" alt="Video Thumbnail" class="youtube-thumbnail">
+            </a>
+        </div>
+        <div class="video-container">
+            <a href="https://www.youtube.com/watch?v=xBB_O37bhnE" target="_blank">
+              <img src="https://img.youtube.com/vi/xBB_O37bhnE/0.jpg" alt="Video Thumbnail" class="youtube-thumbnail">
+            </a>
+            <p class="ImageDescription">How to study efficently</p>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-content">
+          <!-- Copyright Section -->
+          <p>© 2024 Your Company Name. All Rights Reserved.</p>
+          
+          <!-- Navigation Links -->
+          <ul class="footer-nav">
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+            <li><a href="/privacy">Privacy Policy</a></li>
+          </ul>
+          
+          <!-- Social Media Links with Responsive Images -->
+          <div class="social-media">
+            <a href="https://facebook.com" target="_blank">
+              <img src="IconImages/Facebook24.png" 
+                   srcset="IconImages/Facebook24.png 24w, IconImages/Facebook48.png 48w, IconImages/Facebook96.png 96w" 
+                   sizes="(max-width: 600px) 24px, (max-width: 1200px) 48px, 96px" 
+                   alt="Facebook">
+            </a>
+            <a href="https://twitter.com" target="_blank">
+              <img src="IconImages/Twitter24.png" 
+                   srcset="IconImages/Twitter24.png 24w, IconImages/Twitter48.png 48w, IconImages/Twitter96.png 96w" 
+                   sizes="(max-width: 600px) 24px, (max-width: 1200px) 48px, 96px" 
+                   alt="Twitter">
+            </a>
+            <a href="https://instagram.com" target="_blank">
+              <img src="IconImages/Instagram24.png" 
+                   srcset="IconImages/Instagram24.png 24w, IconImages/Instagram48.png 48w, IconImages/Instagram96.png 96w" 
+                   sizes="(max-width: 600px) 24px, (max-width: 1200px) 48px, 96px" 
+                   alt="Instagram">
+            </a>
+          </div>
+          
+          <!-- Newsletter Signup -->
+          <div class="newsletter">
+            <label for="email">Sign up for our newsletter:</label>
+            <input type="email" id="email" placeholder="Enter your email">
+            <button type="submit">Subscribe</button>
+          </div>
+        </div>
+      </footer>
     </body>
 </html>

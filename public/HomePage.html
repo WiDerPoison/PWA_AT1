@@ -18,48 +18,102 @@
                 Your browser does not support the video tag.
             </video>
         </div>
-        <ul class="NavBar">
-            <li><a href='./HomePage.html'>Home</a></li>
-            <li>
-                <a href="./HomePage.html">
-                    <picture>
-                        <source srcset="IconImages/Home96.png" media="(min-width: 1024px)">
-                        <source srcset="IconImages/Home48.png" media="(min-width: 768px)">
-                        <source srcset="IconImages/Home24.png" media="(max-width: 767px)">
-                        <img src="IconImages/Home48.png" alt="HomeIcon">
-                    </picture>
-                </a>
-            </li>
-            <li><a href='./StudyPlanner.html'>Study Planner</a></li>
-            <li>
-                <a href="./StudyPlanner.html">
-                    <picture>
-                        <source srcset="IconImages/StudyBook96.png" media="(min-width: 1024px)">
-                        <source srcset="IconImages/StudyBook48.png" media="(min-width: 768px)">
-                        <source srcset="IconImages/StudyBook24.png" media="(max-width: 767px)">
-                        <img src="IconImages/StudyBook96" alt="StudyPlannerIcon">
-                    </picture>
-                </a>
-            </li>
-            <li><a href='./StudyTips.html'>Study Tips</a></li>
-            <li>
-                <a href='./StudyTips.html'>
-                    <Picture>
-                        <source srcset="IconImages/StudyBook96.png" media="(min-width: 1024px)">
-                        <source srcset="IconImages/StudyBook48.png" media="(min-width: 768px)">
-                        <source srcset="IconImages/StudyBook24.png" media="(max-width: 767px)">
-                        <img src="IconImages/StudyBook96" alt="StudyPlannerIcon">
-                    </Picture>
-                </a>
-            </li>
-            
-        </ul>
+        <div class="main-content">
+            <ul class="NavBar">
+                <li><a href='./HomePage.html'>Home</a></li>
+                <li>
+                    <a href="./HomePage.html">
+                        <picture>
+                            <source srcset="IconImages/Home96.png" media="(min-width: 1024px)">
+                            <source srcset="IconImages/Home48.png" media="(min-width: 768px)">
+                            <source srcset="IconImages/Home24.png" media="(max-width: 767px)">
+                            <img src="IconImages/Home48.png" alt="HomeIcon">
+                        </picture>
+                    </a>
+                </li>
+                <li><a href='./StudyPlanner.html'>Study Planner</a></li>
+                <li>
+                    <a href="./StudyPlanner.html">
+                        <picture>
+                            <source srcset="IconImages/StudyBook96.png" media="(min-width: 1024px)">
+                            <source srcset="IconImages/StudyBook48.png" media="(min-width: 768px)">
+                            <source srcset="IconImages/StudyBook24.png" media="(max-width: 767px)">
+                            <img src="IconImages/StudyBook96" alt="StudyPlannerIcon">
+                        </picture>
+                    </a>
+                </li>
+                <li><a href='./StudyTips.html'>Study Tips</a></li>
+                <li>
+                    <a href='./StudyTips.html'>
+                        <Picture>
+                            <source srcset="IconImages/QuestionMark96.png" media="(min-width: 1024px)">
+                            <source srcset="IconImages/QuestionMark48.png" media="(min-width: 768px)">
+                            <source srcset="IconImages/QuestionMark24.png" media="(max-width: 767px)">
+                            <img src="IconImages/StudyBook96" alt="QuestionMark">
+                        </Picture>
+                    </a>
+                </li>
+                
+            </ul>
 
-        <p> 
-            We all know how difficult it is to manage all of our commitments. Thus, the STUDY PLANNER 3000 was developed.
-            Through this site you will be able to store all of your scheduled activites and assignments making the planning
-            and management of your time easier. It will also contain some study resources and tips for those who do not know
-            where to start. See the navigation bar to access the different pages and feel free to enjoy 
-        </p>
+            <p> 
+                We all know how difficult it is to manage all of our commitments. Thus, the STUDY PLANNER 3000 was developed.
+                Through this site you will be able to store all of your scheduled activites and assignments making the planning
+                and management of your time easier. It will also contain some study resources and tips for those who do not know
+                where to start. See the navigation bar to access the different pages and feel free to enjoy 
+            </p>
+
+            <form id="upload-form">
+                <input type="file" id="image" name="image" accept="image/*" required>
+                <button type="submit">Upload Image</button>
+            </form>
+            
+            <ul id="image-gallery"></ul>
+        </div>
+        <footer>
+            <div class="footer-content">
+              <!-- Copyright Section -->
+              <p>© 2024 Your Company Name. All Rights Reserved.</p>
+              
+              <!-- Navigation Links -->
+              <ul class="footer-nav">
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/contact">Contact Us</a></li>
+                <li><a href="/privacy">Privacy Policy</a></li>
+              </ul>
+              
+              <!-- Social Media Links with Responsive Images -->
+              <div class="social-media">
+                <a href="https://facebook.com" target="_blank">
+                  <img src="IconImages/Facebook24.png" 
+                       srcset="IconImages/Facebook24.png 24w, IconImages/Facebook48.png 48w, IconImages/Facebook96.png 96w" 
+                       sizes="(max-width: 600px) 24px, (max-width: 1200px) 48px, 96px" 
+                       alt="Facebook">
+                </a>
+                <a href="https://twitter.com" target="_blank">
+                  <img src="IconImages/Twitter24.png" 
+                       srcset="IconImages/Twitter24.png 24w, IconImages/Twitter48.png 48w, IconImages/Twitter96.png 96w" 
+                       sizes="(max-width: 600px) 24px, (max-width: 1200px) 48px, 96px" 
+                       alt="Twitter">
+                </a>
+                <a href="https://instagram.com" target="_blank">
+                  <img src="IconImages/Instagram24.png" 
+                       srcset="IconImages/Instagram24.png 24w, IconImages/Instagram48.png 48w, IconImages/Instagram96.png 96w" 
+                       sizes="(max-width: 600px) 24px, (max-width: 1200px) 48px, 96px" 
+                       alt="Instagram">
+                </a>
+              </div>
+              
+              <!-- Newsletter Signup -->
+              <div class="newsletter">
+                <label for="email">Sign up for our newsletter:</label>
+                <input type="email" id="email" placeholder="Enter your email">
+                <button type="submit">Subscribe</button>
+              </div>
+            </div>
+          </footer>
+          
+        
+        <script src="ImageHandler.js"></script>
     </body>
 </html>

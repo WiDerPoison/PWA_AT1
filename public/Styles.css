@@ -1,9 +1,97 @@
-body { /*defines the apperance of the body*/
+/* General body and html reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; /* Prevent unwanted scrolling */
     font-family: Arial, sans-serif;
     text-align: center;
     background-color: rgb(58, 65, 70);
 }
 
+/* Flexbox layout for the body */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pushes the footer to the bottom */
+}
+
+/* Main content area */
+.main-content {
+    flex: 1; /* Ensures the content takes up available space */
+}
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    position: relative;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-nav {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-nav li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.footer-nav a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Social media icon styling */
+.social-media a {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+/* Responsive Social Media Icons */
+.social-media img {
+    width: 24px;
+    height: 24px;
+}
+
+@media (min-width: 601px) and (max-width: 1200px) {
+    .social-media img {
+        width: 48px;
+        height: 48px;
+    }
+}
+
+@media (min-width: 1201px) {
+    .social-media img {
+        width: 96px;
+        height: 96px;
+    }
+}
+
+/* Newsletter Section */
+.newsletter {
+    margin-top: 20px;
+}
+
+.newsletter input {
+    padding: 10px;
+    margin-right: 10px;
+}
+
+.newsletter button {
+    padding: 10px;
+}
+
+/* Other existing styles */
 form {
     margin-bottom: 20px;
 }
@@ -17,8 +105,7 @@ input {
     padding: 0;
 }
 
-ul.NavBar 
-{
+ul.NavBar {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -26,13 +113,11 @@ ul.NavBar
     background-color: #4f515c;
 }
 
-ul.NavBar li 
-{
+ul.NavBar li {
     float: left;
 }
 
-ul.NavBar li a 
-{
+ul.NavBar li a {
     display: block;
     color: white;
     text-align: center;
@@ -40,21 +125,30 @@ ul.NavBar li a
     text-decoration: none;
 }
 
-    /* Change the link color to #111 (black) on hover */
-ul.NavBar li a:hover 
-{
+/* Change the link color to #111 (black) on hover */
+ul.NavBar li a:hover {
     background-color: #111;
 }
-
 
 /* Adjusts the height of images to fit NavBar */
 .NavBar img {
     width: auto;
-    height: 50px; 
-    object-fit: contain; 
+    height: 40px;
+    object-fit: contain;
 }
 
-/* importing the best font for usage*/
+ul.NavBar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: 'Spectral', sans-serif; /* Use Spectral font */
+    font-weight: 700; /* Set to bold */
+    font-size: 18px; /* Adjust the text size here */
+}
+
+/* Font-face imports (Spectral) */
 @font-face {
     font-family: 'Spectral';
     src: url('/Fonts/Spectral-Regular.ttf') format('truetype');
@@ -217,4 +311,27 @@ body, html {
     }
 }
 
+/* Specific styles for YouTube thumbnails */
+.youtube-thumbnail {
+    width: 300px;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
   
+.youtube-thumbnail:hover {
+    transform: scale(1.05);
+}
+
+.ImageDescription {
+    font-family: 'Spectral', serif;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+    margin-top: 10px;
+    font-size: 25px;
+}
+#image-gallery {
+    list-style-type: none;
+    padding-left: 0;
+}
