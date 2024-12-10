@@ -3,10 +3,10 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    overflow: hidden; /* Prevent unwanted scrolling */
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: rgb(58, 65, 70);
+    font-family: 'Spectral', sans-serif;
+    color: white;
+    background-color: #2C3E50; /* A deep, dark blue for the background */
+    overflow: hidden; /* Prevent scrolling */
 }
 
 /* Flexbox layout for the body */
@@ -19,6 +19,48 @@ body {
 /* Main content area */
 .main-content {
     flex: 1; /* Ensures the content takes up available space */
+    padding: 20px;
+}
+
+/* Text Style */
+.BasicText {
+    font-family: 'Spectral', serif;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+    margin-top: 10px;
+    font-size: 25px;
+}
+
+p {
+    font-family: 'Spectral', serif;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+}
+
+/* Study Planner Form */
+form {
+    margin-bottom: 20px;
+}
+
+input[type="file"] {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2980b9;
 }
 
 /* Footer styles */
@@ -51,13 +93,11 @@ footer {
     text-decoration: none;
 }
 
-/* Social media icon styling */
 .social-media a {
     display: inline-block;
     margin: 0 10px;
 }
 
-/* Responsive Social Media Icons */
 .social-media img {
     width: 24px;
     height: 24px;
@@ -77,90 +117,57 @@ footer {
     }
 }
 
-/* Newsletter Section */
-.newsletter {
-    margin-top: 20px;
+/* Responsive Design */
+@media screen and (max-width: 767px) {
+    .NavBar {
+        display: flex;
+        flex-direction: column;
+    }
+    .NavBar li {
+        margin: 5px 0;
+    }
+    .social-media img {
+        width: 32px;
+        height: 32px;
+    }
 }
 
-.newsletter input {
-    padding: 10px;
-    margin-right: 10px;
-}
-
-.newsletter button {
-    padding: 10px;
-}
-
-/* Other existing styles */
-form {
-    margin-bottom: 20px;
-}
-
-input {
-    margin: 5px;
-}
-
-#study-list {
+/* Image Gallery */
+#image-gallery {
     list-style-type: none;
-    padding: 0;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column; /* Stack images vertically */
+    align-items: center; /* Center the images horizontally */
+    gap: 20px; /* Add space between images */
 }
 
-ul.NavBar {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #4f515c;
+#image-gallery img {
+    max-width: 90%; /* Increase the image size, but ensure it fits within the screen */
+    width: 100%; /* Ensure images take up full width of the container */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 80vh; /* Limit the image height to 80% of the viewport height */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-ul.NavBar li {
-    float: left;
+/* Responsive Image Gallery */
+@media (max-width: 768px) {
+    #image-gallery {
+        flex-direction: column; /* Ensure vertical layout on smaller screens */
+    }
+    
+    #image-gallery img {
+        max-width: 95%; /* Slightly reduce size for smaller screens */
+    }
 }
 
-ul.NavBar li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-/* Change the link color to #111 (black) on hover */
-ul.NavBar li a:hover {
-    background-color: #111;
-}
-
-/* Adjusts the height of images to fit NavBar */
-.NavBar img {
-    width: auto;
-    height: 40px;
-    object-fit: contain;
-}
-
-ul.NavBar li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-family: 'Spectral', sans-serif; /* Use Spectral font */
-    font-weight: 700; /* Set to bold */
-    font-size: 18px; /* Adjust the text size here */
-}
-
-/* Font-face imports (Spectral) */
+/* Font face for Spectral */
 @font-face {
     font-family: 'Spectral';
     src: url('/Fonts/Spectral-Regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
-}
-
-@font-face {
-    font-family: 'Spectral';
-    src: url('/Fonts/Spectral-Italic.ttf') format('truetype');
-    font-weight: 400;
-    font-style: italic;
 }
 
 @font-face {
@@ -172,166 +179,117 @@ ul.NavBar li a {
 
 @font-face {
     font-family: 'Spectral';
-    src: url('/Fonts/Spectral-BoldItalic.ttf') format('truetype');
-    font-weight: 700;
+    src: url('/Fonts/Spectral-Italic.ttf') format('truetype');
+    font-weight: 400;
     font-style: italic;
 }
 
-@font-face {
-    font-family: 'Spectral';
-    src: url('/Fonts/Spectral-ExtraBold.ttf') format('truetype');
-    font-weight: 800;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Spectral';
-    src: url('/Fonts/Spectral-ExtraBoldItalic.ttf') format('truetype');
-    font-weight: 800;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'Spectral';
-    src: url('/Fonts/Spectral-Light.ttf') format('truetype');
-    font-weight: 300;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Spectral';
-    src: url('/Fonts/Spectral-LightItalic.ttf') format('truetype');
-    font-weight: 300;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'Spectral';
-    src: url('/Fonts/Spectral-Medium.ttf') format('truetype');
-    font-weight: 500;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Spectral';
-    src: url('/Fonts/Spectral-MediumItalic.ttf') format('truetype');
-    font-weight: 500;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'Spectral';
-    src: url('/Fonts/Spectral-SemiBold.ttf') format('truetype');
-    font-weight: 600;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Spectral';
-    src: url('/Fonts/Spectral-SemiBoldItalic.ttf') format('truetype');
-    font-weight: 600;
-    font-style: italic;
-}
-
-p {
-    font-family: 'Spectral', sans-serif;
-    font-weight: 400; /* Use the regular font variant */
-    font-style: normal;
-    color: #333; /* Add any additional styling */
-}
-
-/* Styles only for the splash page */
-#splash-page {
+/* NavBar Styling */
+.NavBar {
+    list-style: none;
+    padding-left: 0;
     margin: 0;
-    padding: 0;
-    overflow: hidden; /* Prevent scrolling */
-}
-  
-#splash-page .splash-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    background-color: black;
+    display: flex;
+    justify-content: flex-start; /* Align the NavBar to the left */
+    background-color: #34495e;
+    font-size: 18px;
 }
 
-/* General reset */
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow: hidden;
+.NavBar li {
+    display: inline;
 }
 
-/* Video Background Container */
-.video-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* Send video behind content */
-    overflow: hidden;
-}
-
-/* Common styles for both videos */
-.video-background video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    min-width: 100%;
-    min-height: 100%;
-    object-fit: cover;
-}
-
-/* Landscape video (default) */
-.landscape-video {
+.NavBar li a {
+    text-decoration: none;
+    color: white;
+    padding: 14px 20px;
     display: block;
 }
 
-/* Portrait video (hidden by default) */
-.portrait-video {
-    display: none;
+.NavBar li a:hover {
+    background-color: #2980b9;
 }
 
-/* Media Query for Portrait Orientation */
-@media screen and (orientation: portrait) {
-    .landscape-video {
-        display: none; /* Hide landscape video */
+/* Responsive NavBar */
+@media screen and (max-width: 767px) {
+    .NavBar {
+        display: flex;
+        flex-direction: column;
     }
-
-    .portrait-video {
-        display: block; /* Show portrait video */
+    .NavBar li {
+        margin-bottom: 10px;
     }
 }
 
-/* Specific styles for YouTube thumbnails */
-.youtube-thumbnail {
-    width: 300px;
-    height: auto;
-    border-radius: 8px;
-    transition: transform 0.3s;
-}
-  
-.youtube-thumbnail:hover {
-    transform: scale(1.05);
+/* Footer Newsletter */
+.newsletter {
+    margin-top: 20px;
 }
 
-.ImageDescription {
-    font-family: 'Spectral', serif;
-    font-weight: 400;
-    font-style: normal;
+.newsletter input[type="email"] {
+    padding: 10px;
+    border-radius: 5px;
+    margin-right: 10px;
+    border: none;
+    width: 200px;
+}
+
+.newsletter button {
+    background-color: #3498db;
     color: white;
-    margin-top: 10px;
-    font-size: 25px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
 }
-#image-gallery {
-    list-style-type: none;
-    padding-left: 0;
+
+.newsletter button:hover {
+    background-color: #2980b9;
+}
+
+/* Splash Screen */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; /* Prevent scrolling */
+}
+
+/* Container for splash screens */
+.splash-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Make splash screen take up the full height of the page */
+    overflow: hidden; /* Prevent overflow */
+}
+
+/* Portrait video settings */
+#splash-screen-portrait {
+    display: none; /* Default to hidden */
+}
+
+/* Landscape video settings */
+#splash-screen-landscape {
+    display: none; /* Default to hidden */
+}
+
+video {
+    object-fit: cover; /* Ensure the video covers the entire screen */
+    width: 100%;
+    height: 100%;
+}
+
+/* Show the correct video based on orientation */
+@media (orientation: portrait) {
+    #splash-screen-portrait {
+        display: block;
+    }
+}
+
+@media (orientation: landscape) {
+    #splash-screen-landscape {
+        display: block;
+    }
 }

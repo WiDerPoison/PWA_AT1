@@ -8,17 +8,7 @@
         <title>Study Planner</title>
     </head>
     <body>
-        <div class="video-background">
-            <video class="landscape-video" autoplay loop muted playsinline>
-                <source src="DynamicAssests/LandscapeBackground3Sec.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <video class="portrait-video" autoplay loop muted playsinline>
-                <source src="DynamicAssests/PortraitBackground3Sec.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <div class="main-content">
+        <header>
             <ul class="NavBar">
                 <li><a href='./HomePage.html'>Home</a></li>
                 <li>
@@ -55,21 +45,21 @@
                 </li>
                 
             </ul>
+        </header>
 
-            <p> 
-                We all know how difficult it is to manage all of our commitments. Thus, the STUDY PLANNER 3000 was developed.
-                Through this site you will be able to store all of your scheduled activites and assignments making the planning
-                and management of your time easier. It will also contain some study resources and tips for those who do not know
-                where to start. See the navigation bar to access the different pages and feel free to enjoy 
-            </p>
+        <p id="BasicText"> 
+            We all know how difficult it is to manage all of our commitments. Thus, the STUDY PLANNER 3000 was developed.
+            Through this site you will be able to store all of your scheduled activites and assignments making the planning
+            and management of your time easier. It will also contain some study resources and tips for those who do not know
+            where to start. See the navigation bar to access the different pages and feel free to enjoy 
+        </p>
 
-            <form id="upload-form">
-                <input type="file" id="image" name="image" accept="image/*" required>
-                <button type="submit">Upload Image</button>
-            </form>
-            
-            <ul id="image-gallery"></ul>
-        </div>
+        <form id="upload-form">
+            <input type="file" id="image" name="image" accept="image/*" required>
+            <button type="submit">Upload Image</button>
+        </form>
+        
+        <ul id="image-gallery"></ul>
         <footer>
             <div class="footer-content">
               <!-- Copyright Section -->

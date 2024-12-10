@@ -1,7 +1,9 @@
 const express = require('express');
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
-const multer = require('multer'); // For file handling
+const multer = require('multer');
+const crypto = require('crypto');
+const fs = require('fs');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -17,6 +19,81 @@ const db = new sqlite3.Database(path.join(__dirname, 'study-planner.db'), (err) 
     }
     console.log('Connected to the SQLite database.');
 });
+
+// Function to clean up duplicate images based on their content (SHA256 hash)
+function cleanUpDuplicates() {
+    const findDuplicatesSQL = `SELECT id, filename FROM images`;
+    db.all(findDuplicatesSQL, [], (err, rows) => {
+        if (err) {
+            console.error('Error fetching images for duplicate cleanup:', err.message);
+            return;
+        }
+
+        const fileHashes = {};
+
+        rows.forEach((image) => {
+            const imagePath = path.join(__dirname, 'uploads', image.filename);
+            if (fs.existsSync(imagePath)) {
+                // Generate hash for the image content
+                const fileBuffer = fs.readFileSync(imagePath);
+                const hash = crypto.createHash('sha256').update(fileBuffer).digest('hex');
+
+                // Check if hash already exists (indicating duplicate)
+                if (fileHashes[hash]) {
+                    // Mark duplicate for deletion
+                    const duplicateID = image.id;
+                    db.run('DELETE FROM images WHERE id = ?', [duplicateID], function (err) {
+                        if (err) {
+                            console.error(`Error deleting duplicate image with ID ${duplicateID}:`, err.message);
+                        } else {
+                            console.log(`Deleted duplicate image with ID ${duplicateID}`);
+                            fs.unlinkSync(imagePath);  // Also delete the file
+                        }
+                    });
+                } else {
+                    // Store the hash for future comparisons
+                    fileHashes[hash] = image.id;
+                }
+            }
+        });
+    });
+}
+
+// Function to cache images from the uploads folder into the database on server startup
+function cacheImages() {
+    const uploadDir = path.join(__dirname, 'uploads');
+    fs.readdir(uploadDir, (err, files) => {
+        if (err) {
+            console.error('Error reading uploads folder:', err.message);
+            return;
+        }
+
+        files.forEach((file) => {
+            const filePath = path.join(uploadDir, file);
+
+            // Check if the file is already in the database
+            const checkFileSQL = 'SELECT id FROM images WHERE filename = ?';
+            db.get(checkFileSQL, [file], (err, row) => {
+                if (err) {
+                    console.error('Error checking if file exists in the database:', err.message);
+                    return;
+                }
+
+                // If the file is not in the database, add it
+                if (!row) {
+                    const insertSQL = 'INSERT INTO images (filename) VALUES (?)';
+                    db.run(insertSQL, [file], function (err) {
+                        if (err) {
+                            console.error('Error inserting image into database:', err.message);
+                            return;
+                        }
+                        console.log(`Inserted image ${file} into the database.`);
+                    });
+                }
+            });
+        });
+    });
+}
 
 // Create tables if they don't exist
 db.serialize(() => {
@@ -34,11 +111,17 @@ db.serialize(() => {
         filename TEXT NOT NULL,
         upload_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )`);
+
+    // Run duplicate cleanup
+    cleanUpDuplicates();
+
+    // Cache images from uploads folder into the database on server startup
+    cacheImages();
 });
 
 // Set up multer for file uploads
 const storage = multer.diskStorage({
-    destination: path.join(__dirname, 'uploads'), 
+    destination: path.join(__dirname, 'uploads'),
     filename: (req, file, cb) => {
         cb(null, `${Date.now()}-${file.originalname}`);
     }
@@ -60,7 +143,7 @@ app.post('/api/study-sessions', (req, res) => {
 
 // Endpoint to retrieve all study sessions
 app.get('/api/study-sessions', (req, res) => {
-    const sql = 'SELECT * FROM study_sessions ORDER BY due_date'; // Orders by urgency of tasks
+    const sql = 'SELECT * FROM study_sessions ORDER BY due_date';
     
     db.all(sql, [], (err, rows) => {
         if (err) {
@@ -114,14 +197,32 @@ app.get('/api/images', (req, res) => {
     });
 });
 
+// Endpoint to delete an image
+app.delete('/api/images/:id', (req, res) => {
+    const { id } = req.params;
+    db.run('DELETE FROM images WHERE id = ?', [id], function (err) {
+        if (err) {
+            console.error(`Error deleting image with ID ${id}:`, err.message);
+            return res.status(500).json({ error: `Failed to delete image with ID ${id}` });
+        }
+        res.status(200).json({ success: true });
+    });
+});
+
+// Optional endpoint to trigger duplicate cleanup manually
+app.post('/api/clean-duplicates', (req, res) => {
+    cleanUpDuplicates();
+    res.status(200).send('Duplicate cleanup completed.');
+});
+
 // Middleware to parse JSON data
 app.use(express.json());
 
 // Serve static files from the 'public' folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Serve static files from the 'uploads' folder (outside 'public' folder)
-app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); 
+// Serve static files from the 'uploads' folder
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Serve the splash screen HTML file
 app.get('/splash', (req, res) => {

@@ -19,57 +19,57 @@
             Your browser does not support the video tag.
         </video>
     </div>
-    <div class="main-content">
-        <ul class="NavBar">
-            <li><a href='./HomePage.html'>Home</a></li>
-            <li>
-                <a href="./HomePage.html">
-                    <picture>
-                        <source srcset="IconImages/Home96.png" media="(min-width: 1024px)">
-                        <source srcset="IconImages/Home48.png" media="(min-width: 768px)">
-                        <source srcset="IconImages/Home24.png" media="(max-width: 767px)">
-                        <img src="IconImages/Home48.png" alt="HomeIcon">
-                    </picture>
-                </a>
-            </li>
-            <li><a href='./StudyPlanner.html'>Study Planner</a></li>
-            <li>
-                <a href="./StudyPlanner.html">
-                    <picture>
-                        <source srcset="IconImages/StudyBook96.png" media="(min-width: 1024px)">
-                        <source srcset="IconImages/StudyBook48.png" media="(min-width: 768px)">
-                        <source srcset="IconImages/StudyBook24.png" media="(max-width: 767px)">
-                        <img src="IconImages/StudyBook96" alt="StudyPlannerIcon">
-                    </picture>
-                </a>
-            </li>
-            <li><a href='./StudyTips.html'>Study Tips</a></li>
-            <li>
-                <a href='./StudyTips.html'>
-                    <Picture>
-                        <source srcset="IconImages/QuestionMark96.png" media="(min-width: 1024px)">
-                        <source srcset="IconImages/QuestionMark48.png" media="(min-width: 768px)">
-                        <source srcset="IconImages/QuestionMark24.png" media="(max-width: 767px)">
-                        <img src="IconImages/StudyBook96" alt="QuestionMark">
-                    </Picture>
-                </a>
-            </li>
-            
-        </ul>
-    
-    
-        <h1>Study Planner</h1>
-        <form id="study-form"> <!--Creates a form which will store the data of subject topic and duedate from the user-->
-            <input type="text" id="subject" placeholder="Subject" required>
-            <input type="text" id="topic" placeholder="Topic" required>
-            <input type="date" id="due-date" required>
-            <button type="submit" id="submit-button">Add Study Session</button>
-        </form>
+
+    <ul class="NavBar">
+        <li><a href='./HomePage.html'>Home</a></li>
+        <li>
+            <a href="./HomePage.html">
+                <picture>
+                    <source srcset="IconImages/Home96.png" media="(min-width: 1024px)">
+                    <source srcset="IconImages/Home48.png" media="(min-width: 768px)">
+                    <source srcset="IconImages/Home24.png" media="(max-width: 767px)">
+                    <img src="IconImages/Home48.png" alt="HomeIcon">
+                </picture>
+            </a>
+        </li>
+        <li><a href='./StudyPlanner.html'>Study Planner</a></li>
+        <li>
+            <a href="./StudyPlanner.html">
+                <picture>
+                    <source srcset="IconImages/StudyBook96.png" media="(min-width: 1024px)">
+                    <source srcset="IconImages/StudyBook48.png" media="(min-width: 768px)">
+                    <source srcset="IconImages/StudyBook24.png" media="(max-width: 767px)">
+                    <img src="IconImages/StudyBook96" alt="StudyPlannerIcon">
+                </picture>
+            </a>
+        </li>
+        <li><a href='./StudyTips.html'>Study Tips</a></li>
+        <li>
+            <a href='./StudyTips.html'>
+                <Picture>
+                    <source srcset="IconImages/QuestionMark96.png" media="(min-width: 1024px)">
+                    <source srcset="IconImages/QuestionMark48.png" media="(min-width: 768px)">
+                    <source srcset="IconImages/QuestionMark24.png" media="(max-width: 767px)">
+                    <img src="IconImages/StudyBook96" alt="QuestionMark">
+                </Picture>
+            </a>
+        </li>
         
-        <input type="text" id="search-query" placeholder="Search by subject or topic">
-        <button id="search-button">Search</button>
-        
-        <ul id="study-list"></ul> <!--references location of study list-->
+    </ul>
+
+
+    <h1>Study Planner</h1>
+    <form id="study-form"> <!--Creates a form which will store the data of subject topic and duedate from the user-->
+        <input type="text" id="subject" placeholder="Subject" required>
+        <input type="text" id="topic" placeholder="Topic" required>
+        <input type="date" id="due-date" required>
+        <button type="submit" id="submit-button">Add Study Session</button>
+    </form>
+    
+    <input type="text" id="search-query" placeholder="Search by subject or topic">
+    <button id="search-button">Search</button>
+    
+    <ul id="study-list"></ul> <!--references location of study list-->
     <script src="StudyPlannerHandler.js"></script> <!-- Interupts normal form processes and appends it into study list-->
     <script>
         if ('serviceWorker' in navigator) { //checkf if there is a servicework
@@ -79,7 +79,7 @@
                 });
         } //cows are very cool
     </script> 
-    </div>
+
     <footer>
         <div class="footer-content">
           <!-- Copyright Section -->
