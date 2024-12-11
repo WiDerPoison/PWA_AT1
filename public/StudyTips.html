@@ -3,117 +3,127 @@
     <head>   
         <meta charset="UTF-8"> <!--Defines th characters in use, using this on since its recommended based on the inclustivity of it-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--helps to define the size of the page based on different user screen sizes-->
+        <meta name="description" content="A brief page giving Study Tips for those who are struggling to study">
         <link rel="stylesheet" href="Styles.css">
         <link rel="manifest" href="Manifest.json">
         <title>Study Planner/Study Tips</title>
     </head>
     <body>
     
-        <video class="landscape-video" autoplay loop muted playsinline>
-            <source src="DynamicAssests/LandscapeBackground3Sec.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <video class="portrait-video" autoplay loop muted playsinline>
-            <source src="DynamicAssests/PortraitBackground3Sec.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div>
-    <div class="main-content">
-        <ul class="NavBar">
-            <li><a href='./HomePage.html'>Home</a></li>
-            <li>
-                <a href="./HomePage.html">
-                    <picture>
-                        <source srcset="IconImages/Home96.png" media="(min-width: 1024px)">
-                        <source srcset="IconImages/Home48.png" media="(min-width: 768px)">
-                        <source srcset="IconImages/Home24.png" media="(max-width: 767px)">
-                        <img src="IconImages/Home48.png" alt="HomeIcon">
-                    </picture>
-                </a>
-            </li>
-            <li><a href='./StudyPlanner.html'>Study Planner</a></li>
-            <li>
-                <a href="./StudyPlanner.html">
-                    <picture>
-                        <source srcset="IconImages/StudyBook96.png" media="(min-width: 1024px)">
-                        <source srcset="IconImages/StudyBook48.png" media="(min-width: 768px)">
-                        <source srcset="IconImages/StudyBook24.png" media="(max-width: 767px)">
-                        <img src="IconImages/StudyBook96" alt="StudyPlannerIcon">
-                    </picture>
-                </a>
-            </li>
-            <li><a href='./StudyTips.html'>Study Tips</a></li>
-            <li>
-                <a href='./StudyTips.html'>
-                    <Picture>
-                        <source srcset="IconImages/QuestionMark96.png" media="(min-width: 1024px)">
-                        <source srcset="IconImages/QuestionMark48.png" media="(min-width: 768px)">
-                        <source srcset="IconImages/QuestionMark24.png" media="(max-width: 767px)">
-                        <img src="IconImages/StudyBook96" alt="QuestionMark">
-                    </Picture>
-                </a>
-            </li>
-            
-        </ul>
-    
+        <header>
+            <ul class="NavBar">
+                <li><a href='./HomePage.html'>Home</a></li>
+                <li>
+                    <a href="./HomePage.html">
+                        <picture>
+                            <source srcset="IconImages/Home96.png" media="(min-width: 1024px)">
+                            <source srcset="IconImages/Home48.png" media="(min-width: 768px)">
+                            <source srcset="IconImages/Home24.png" media="(max-width: 767px)">
+                            <img src="IconImages/Home48.png" alt="HomeIcon">
+                        </picture>
+                    </a>
+                </li>
+                <li><a href='./StudyPlanner.html'>Study Planner</a></li>
+                <li>
+                    <a href="./StudyPlanner.html">
+                        <picture>
+                            <source srcset="IconImages/StudyBook96.png" media="(min-width: 1024px)">
+                            <source srcset="IconImages/StudyBook48.png" media="(min-width: 768px)">
+                            <source srcset="IconImages/StudyBook24.png" media="(max-width: 767px)">
+                            <img src="IconImages/StudyBook96" alt="StudyPlannerIcon">
+                        </picture>
+                    </a>
+                </li>
+                <li><a href='./StudyTips.html'>Study Tips</a></li>
+                <li>
+                    <a href='./StudyTips.html'>
+                        <Picture>
+                            <source srcset="IconImages/QuestionMark96.png" media="(min-width: 1024px)">
+                            <source srcset="IconImages/QuestionMark48.png" media="(min-width: 768px)">
+                            <source srcset="IconImages/QuestionMark24.png" media="(max-width: 767px)">
+                            <img src="IconImages/StudyBook96" alt="QuestionMark">
+                        </Picture>
+                    </a>
+                </li>
+                
+            </ul>
+        </header>
 
-    <div class="video-container">
-        <a href="https://www.youtube.com/watch?v=cLtM3pa9_SQ" target="_blank">
-            <img src="https://img.youtube.com/vi/cLtM3pa9_SQ/0.jpg" alt="Video Thumbnail" class="youtube-thumbnail">
-        </a>
-        <p class="ImageDescription">How to take notes, the cornell methodology</p>
-    </div>
-    <div class="video-container">
-        <a href="https://www.youtube.com/watch?v=xBB_O37bhnE" target="_blank">
-            <img src="https://img.youtube.com/vi/xBB_O37bhnE/0.jpg" alt="Video Thumbnail" class="youtube-thumbnail">
-        </a>
-        <p class="ImageDescription">How to study efficently</p>
-    </div>
-    <!-- <a href="ReadMePls.txt" download>
-        <img src="FaviconImages/cow-192x192.png">
-    </a> -->
-    
-    <footer>
-        <div class="footer-content">
-          <!-- Copyright Section -->
-          <p class="footer">© 2024 Your Company Name. All Rights Reserved.</p>
-          
-          <!-- Navigation Links -->
-          <ul class="footer-nav">
-            <li><a href="/about">About Us</a></li>
-            <li><a href="/contact">Contact Us</a></li>
-            <li><a href="/privacy">Privacy Policy</a></li>
-          </ul>
-          
-          <!-- Social Media Links with Responsive Images -->
-          <div class="social-media">
-            <a href="https://facebook.com" target="_blank">
-              <img src="IconImages/Facebook24.png" 
-                   srcset="IconImages/Facebook24.png 24w, IconImages/Facebook48.png 48w, IconImages/Facebook96.png 96w" 
-                   sizes="(max-width: 600px) 24px, (max-width: 1200px) 48px, 96px" 
-                   alt="Facebook">
-            </a>
-            <a href="https://twitter.com" target="_blank">
-              <img src="IconImages/Twitter24.png" 
-                   srcset="IconImages/Twitter24.png 24w, IconImages/Twitter48.png 48w, IconImages/Twitter96.png 96w" 
-                   sizes="(max-width: 600px) 24px, (max-width: 1200px) 48px, 96px" 
-                   alt="Twitter">
-            </a>
-            <a href="https://instagram.com" target="_blank">
-              <img src="IconImages/Instagram24.png" 
-                   srcset="IconImages/Instagram24.png 24w, IconImages/Instagram48.png 48w, IconImages/Instagram96.png 96w" 
-                   sizes="(max-width: 600px) 24px, (max-width: 1200px) 48px, 96px" 
-                   alt="Instagram">
-            </a>
-          </div>
-          
-          <!-- Newsletter Signup -->
-          <div class="newsletter">
-            <label for="email">Sign up for our newsletter:</label>
-            <input type="email" id="email" placeholder="Enter your email">
-            <button type="submit">Subscribe</button>
-          </div>
+        <p id="StudyTips"> Studying is hard, boring and time consuming, yet essential. Below are some general tips on how to make your study efficent and reasonable. View the videos for further information.</p>
+
+        <ul id="StudyTips">
+            <li>Set Clear Goals: Break down your tasks into smaller, manageable goals to avoid feeling overwhelmed.</li>
+            <li>Create a Study Schedule: Plan your study time ahead. Use a calendar or planner to stay organized.</li>
+            <li>Prioritize Tasks: Tackle the most important or difficult tasks first when your energy is highest.</li>
+            <li>Minimize Distractions: Find a quiet place to study and turn off your phone notifications to stay focused.</li>
+            <li>Take Breaks: Study in short intervals (e.g., 25 minutes of studying, followed by a 5-minute break).</li>
+            <li>Use Active Learning: Engage with the material by teaching someone else, practicing problems, or summarizing what you’ve learned.</li>
+            <li>Stay Consistent: Regular, consistent study habits are more effective than cramming the night before.</li>
+            <li>Stay Hydrated and Eat Well: Fuel your brain with healthy snacks and plenty of water during study sessions.</li>
+            <li>Get Enough Sleep: Ensure you’re getting 7-9 hours of sleep to improve memory retention and focus.</li>
+            <li>Review Regularly: Go over your notes frequently to reinforce what you’ve learned.</li>
+        </ul>
+        
+
+        <div id="video-container">
+            <div class="video-item">
+                <a href="https://www.youtube.com/watch?v=cLtM3pa9_SQ" target="_blank">
+                    <img src="https://img.youtube.com/vi/cLtM3pa9_SQ/0.jpg" alt="How to take notes, the cornell methodology" class="youtube-thumbnail">
+                </a>
+                <p class="video-description">How to take notes, the cornell methodology</p>
+            </div>
+        
+            <div class="video-item">
+                <a href="https://www.youtube.com/watch?v=xBB_O37bhnE" target="_blank">
+                    <img src="https://img.youtube.com/vi/xBB_O37bhnE/0.jpg" alt="How to study efficiently" class="youtube-thumbnail">
+                </a>
+                <p class="video-description">How to study efficiently</p>
+            </div>
         </div>
-      </footer>
+        
+
+
+        <footer>
+            <div class="footer-content">
+                <!-- Copyright Section -->
+                <p class="footer">© 2024 Your Company Name. All Rights Reserved.</p>
+                
+                <!-- Navigation Links -->
+                <ul class="footer-nav">
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/contact">Contact Us</a></li>
+                <li><a href="/privacy">Privacy Policy</a></li>
+                </ul>
+                
+                <!-- Social Media Links with Responsive Images -->
+                <div class="social-media">
+                <a href="https://facebook.com" target="_blank">
+                    <img src="IconImages/Facebook24.png" 
+                        srcset="IconImages/Facebook24.png 24w, IconImages/Facebook48.png 48w, IconImages/Facebook96.png 96w" 
+                        sizes="(max-width: 600px) 24px, (max-width: 1200px) 48px, 96px" 
+                        alt="Facebook">
+                </a>
+                <a href="https://twitter.com" target="_blank">
+                    <img src="IconImages/Twitter24.png" 
+                        srcset="IconImages/Twitter24.png 24w, IconImages/Twitter48.png 48w, IconImages/Twitter96.png 96w" 
+                        sizes="(max-width: 600px) 24px, (max-width: 1200px) 48px, 96px" 
+                        alt="Twitter">
+                </a>
+                <a href="https://instagram.com" target="_blank">
+                    <img src="IconImages/Instagram24.png" 
+                        srcset="IconImages/Instagram24.png 24w, IconImages/Instagram48.png 48w, IconImages/Instagram96.png 96w" 
+                        sizes="(max-width: 600px) 24px, (max-width: 1200px) 48px, 96px" 
+                        alt="Instagram">
+                </a>
+                </div>
+                
+                <!-- Newsletter Signup -->
+                <div class="newsletter">
+                <label for="email">Sign up for our newsletter:</label>
+                <input type="email" id="email" placeholder="Enter your email">
+                <button type="submit">Subscribe</button>
+                </div>
+            </div>
+        </footer>
     </body>
 </html>

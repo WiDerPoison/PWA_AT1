@@ -3,8 +3,12 @@
     <head>   
         <meta charset="UTF-8"> <!--Defines th characters in use, using this on since its recommended based on the inclustivity of it-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--helps to define the size of the page based on different user screen sizes-->
+        <meta name="description" content="StudyPlanner HomePage which allows access to all the different pages plus a gallery of memes">
         <link rel="stylesheet" href="Styles.css">
         <link rel="manifest" href="Manifest.json">
+        <link rel="preload" href="/Fonts/Spectral-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous"> <!--Speeds up essential fonts for laoding to inceras elighthosue score-->
+        <link rel="preload" href="/Fonts/Spectral-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
         <title>Study Planner</title>
     </head>
     <body>
@@ -55,9 +59,13 @@
         </p>
 
         <form id="upload-form">
-            <input type="file" id="image" name="image" accept="image/*" required>
+            <div class="form-group">
+                <label for="image" class="custom-file-label">Choose an image</label>
+                <input type="file" id="image" name="image" accept="image/*" required hidden>
+            </div>
             <button type="submit">Upload Image</button>
         </form>
+        
         
         <ul id="image-gallery"></ul>
         <footer>

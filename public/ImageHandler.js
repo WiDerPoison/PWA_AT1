@@ -56,8 +56,6 @@ function fetchImages() {
                                 const img = document.createElement('img');
                                 img.src = filePath;
                                 img.alt = 'Uploaded Image';
-                                img.style.width = '150px';
-                                img.style.height = 'auto';
                                 li.appendChild(img);
                                 gallery.appendChild(li);
                             } else {
@@ -85,3 +83,8 @@ function deleteImageFromDB(imageId) {
         .catch(error => console.error('Error deleting image from database:', error));
 }
 
+document.getElementById('image').addEventListener('change', function () {
+    const fileLabel = document.querySelector('.custom-file-label');
+    const fileName = this.files[0] ? this.files[0].name : 'Choose an image';
+    fileLabel.textContent = fileName;
+});

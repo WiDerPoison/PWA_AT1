@@ -6,7 +6,7 @@ body, html {
     font-family: 'Spectral', sans-serif;
     color: white;
     background-color: #2C3E50; /* A deep, dark blue for the background */
-    overflow: hidden; /* Prevent scrolling */
+    overflow: auto; /* Prevent scrolling */
 }
 
 /* Flexbox layout for the body */
@@ -57,6 +57,10 @@ button {
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
+    width: auto; /* Prevent stretching */
+    max-width: 300px; /* Optional: limit maximum size */
+    font-family: 'Spectral', sans-serif;
+    font-size: 20px;
 }
 
 button:hover {
@@ -143,13 +147,13 @@ footer {
 }
 
 #image-gallery img {
-    max-width: 90%; /* Increase the image size, but ensure it fits within the screen */
-    width: 100%; /* Ensure images take up full width of the container */
+    
     height: auto; /* Maintain aspect ratio */
-    max-height: 80vh; /* Limit the image height to 80% of the viewport height */
+    width: 600px; /* Set desired size */
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
 
 /* Responsive Image Gallery */
 @media (max-width: 768px) {
@@ -168,6 +172,7 @@ footer {
     src: url('/Fonts/Spectral-Regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -175,14 +180,9 @@ footer {
     src: url('/Fonts/Spectral-Bold.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
+    font-display: swap;
 }
 
-@font-face {
-    font-family: 'Spectral';
-    src: url('/Fonts/Spectral-Italic.ttf') format('truetype');
-    font-weight: 400;
-    font-style: italic;
-}
 
 /* NavBar Styling */
 .NavBar {
@@ -247,14 +247,6 @@ footer {
     background-color: #2980b9;
 }
 
-/* Splash Screen */
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow: hidden; /* Prevent scrolling */
-}
-
 /* Container for splash screens */
 .splash-screen {
     position: absolute;
@@ -292,4 +284,163 @@ video {
     #splash-screen-landscape {
         display: block;
     }
+}
+
+/* Center the form on the page */
+#upload-form {
+    max-width: 400px; /* Limit the width of the form */
+    margin: 20px auto; /* Center form horizontally */
+    padding: 20px;
+    border: 1px solid #ddd; /* Add a border */
+    border-radius: 8px; /* Round the corners */
+    background-color: #464444; /* Light background color */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a shadow */
+}
+
+/* Style each form group */
+.form-group {
+    margin-bottom: 15px; /* Space between fields */
+    display: flex;
+    flex-direction: column; /* Stack label and input vertically */
+}
+
+/* Style the labels */
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* Style the file input */
+#image {
+    padding: 5px;
+    border: 1px solid #ccc; /* Add a border */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 14px;
+}
+
+/* Style the button */
+#upload-form button {
+    display: inline-block;
+    width: 100%;
+    padding: 10px 15px;
+    border: none;
+    background-color: #8fb2d8; 
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* Hover effect for the button */
+#upload-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Style the custom file input label */
+.custom-file-label {
+    display: inline-block;
+    padding: 10px 15px;
+    border: 1px solid #ccc; /* Add a border */
+    border-radius: 4px; /* Rounded corners */
+    background-color: #f9f9f9; /* Light background */
+    color: black; /* Text color */
+    cursor: pointer; /* Make it look clickable */
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Hover effect for the label */
+.custom-file-label:hover {
+    background-color: #e0e0e0;
+}
+
+/* Optional: Style when a file is selected */
+input[type="file"]:valid + .custom-file-label {
+    color: green; /* Change label color if a file is selected */
+}
+
+main {
+    min-height: calc(100vh - 200px); /* Adjust based on header/footer size */
+}
+
+/* Centering the video container */
+#video-container {
+    display: flex;
+    justify-content: center; /* Center videos horizontally */
+    align-items: center;     /* Center videos vertically */
+    flex-wrap: wrap;         /* Allow videos to wrap to the next line if needed */
+    gap: 20px;               /* Space between videos */
+}
+
+/* Styling each video */
+.video-item {
+    text-align: center;      /* Center-align each video block */
+    transition: transform 0.3s ease-in-out; /* Smooth transition for scaling */
+    border-radius: 8px;     /* Round the corners of the video block */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: adds shadow */
+}
+
+.youtube-thumbnail {
+    width: 300px;           /* Set a default size */
+    height: 200px;          /* Set a default size */
+    transition: transform 0.3s ease-in-out; /* Smooth transition for scaling */
+    border-radius: 8px;     /* Round the corners of the thumbnail */
+}
+
+/* Enlarge the video thumbnail on hover */
+.youtube-thumbnail:hover {
+    transform: scale(1.2);   /* Scale the thumbnail */
+}
+
+/* Description text under each video */
+.video-description {
+    color: #fff;            /* Text color */
+    margin-top: 8px;/* Space between video and description */
+    font-family: 'Spectral', sans-serif; 
+    font-size: 20px;       
+}
+
+#StudyTips {
+    color: #fff;            /* Text color */
+    font-family: 'Spectral', sans-serif; 
+    font-size: 20px;     
+
+}
+
+
+
+/* Styling the heading */
+h1 {
+    color: #ffffff;
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-family: 'Spectral', sans-serif;
+    align-content: center;
+}
+
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Styling the list of study sessions */
+#study-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    align-content: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #study-planner-container {
+        width: 90%;
+    }
+}
+
+#study-planner-container{
+    align-content: center;
 }
