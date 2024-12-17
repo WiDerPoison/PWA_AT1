@@ -1,23 +1,17 @@
-const CACHE_Name = 'study-planner-cache'
+const CACHE_NAME = 'study-planner-cache-v2'; // Updated cache name for versioning
 
-self.addEventListener('install', (event) => {//adds an event listener for when it is installe don a device; slef defines that when it is installed
-    event.waitUntil(//waits till it is done
-        caches.open('study-planner-cache').then((cache) => {//opens the caches and stores the files and images
+self.addEventListener('install', (event) => {
+    event.waitUntil(
+        caches.open(CACHE_NAME).then((cache) => {
             return cache.addAll([
                 '/',
                 '/Index.html',
                 '/HomePage.html',
                 '/StudyPlanner.html',
-                '/StudyTips',
+                '/StudyTips.html',
                 '/Styles.css',
-                '/Script.js',
-                '/FaviconImages/cow.jfif',
-                '/FaviconImages/cow-48x48.png',
-                '/FaviconImages/cow-72x72.png',
-                '/FaviconImages/cow-96x96.png',
-                '/FaviconImages/cow-144x144.png',
-                '/FaviconImages/cow-192x192.png',
-                '/FaviconImages/cow-512x512.png',
+                '/StudyPlannerHandler.js',
+                '/ServiceWorker.js',
                 '/Manifest.json',
                 '/IconImages/Home24.png',
                 '/IconImages/Home48.png',
@@ -25,27 +19,56 @@ self.addEventListener('install', (event) => {//adds an event listener for when i
                 '/IconImages/StudyBook24.png',
                 '/IconImages/StudyBook48.png',
                 '/IconImages/StudyBook96.png',
+                '/IconImages/QuestionMark24.png',
+                '/IconImages/QuestionMark48.png',
+                '/IconImages/QuestionMark96.png',
+                '/IconImages/Facebook24.png',
+                '/IconImages/Facebook48.png',
+                '/IconImages/Facebook96.png',
+                '/IconImages/Twitter24.png',
+                '/IconImages/Twitter48.png',
+                '/IconImages/Twitter96.png',
+                '/IconImages/Instagram24.png',
+                '/IconImages/Instagram48.png',
+                '/IconImages/Instagram96.png',
                 '/Fonts/Spectral-Regular.ttf',
                 '/Fonts/Spectral-Italic.ttf',
                 '/Fonts/Spectral-Bold.ttf',
                 '/Fonts/Spectral-BoldItalic.ttf',
                 '/Fonts/Spectral-ExtraBold.ttf',
-                '/Fonts/Spectral-ExtraBoldItalic.ttf',
                 '/Fonts/Spectral-Light.ttf',
                 '/Fonts/Spectral-LightItalic.ttf',
                 '/Fonts/Spectral-Medium.ttf',
                 '/Fonts/Spectral-MediumItalic.ttf',
                 '/Fonts/Spectral-SemiBold.ttf',
                 '/Fonts/Spectral-SemiBoldItalic.ttf',
+                '/DynamicAssets/LandscapeBackground35sec.mp4',
+                '/DynamicAssets/LandscapeSplashScreen4sec.mp4',
+                '/DynamicAssets/PortraitBackground35sec.mp4',
+                '/DynamicAssets/PortraitSplashScreen4sec.mp4'
             ]);
         })
     );
 });
 
-self.addEventListener('fetch', (event) => {//addns another event listener fir fetch
-    event.respondWith(//completes if the listener is triggered
-        caches.match(event.request).then((response) => {//checks if the reuqtes matches the caches then responds with it 
-            return response || fetch(event.request);//without needing to spend more time looking for it
+self.addEventListener('activate', (event) => {
+    event.waitUntil(
+        caches.keys().then((cacheNames) => {
+            return Promise.all(
+                cacheNames.map((cache) => {
+                    if (cache !== CACHE_NAME) {
+                        return caches.delete(cache); // Remove old caches
+                    }
+                })
+            );
+        })
+    );
+});
+
+self.addEventListener('fetch', (event) => {
+    event.respondWith(
+        caches.match(event.request).then((response) => {
+            return response || fetch(event.request);
         })
     );
 });
